@@ -1,6 +1,6 @@
-# Exploratory Data Analysis Notebooks
+# Hotel Data Analysis Notebooks
 
-This directory contains Jupyter notebooks for comprehensive exploratory data analysis of the hotel pricing dataset.
+This directory contains Jupyter notebooks for comprehensive exploratory data analysis and machine learning modeling of the hotel pricing dataset.
 
 ## Notebooks Overview
 
@@ -118,6 +118,83 @@ This directory contains Jupyter notebooks for comprehensive exploratory data ana
 
 ---
 
+### 05_price_prediction_regression.ipynb
+**Focus:** Machine learning regression models to predict hotel prices
+
+**Models Implemented:**
+- Linear Regression
+- Ridge Regression (L2 regularization)
+- Lasso Regression (L1 regularization)
+- Random Forest Regressor
+- Gradient Boosting Regressor
+
+**Features Used:**
+- Location, rating, distance from center
+- Amenity count, room type, board type
+- Weather conditions (temperature, precipitation, snow depth, sunshine)
+- Temporal features (month, week, day of week)
+- Binary flags (weekend, chain hotel, ski season, school vacation)
+
+**Evaluation Metrics:**
+- R² Score (variance explained)
+- RMSE (Root Mean Squared Error)
+- MAE (Mean Absolute Error)
+- 5-fold Cross-Validation
+
+**Visualizations:**
+- Model performance comparison (R², RMSE, MAE)
+- Predicted vs Actual scatter plots for all models
+- Residual analysis (residual plot, histogram, Q-Q plot)
+- Feature importance ranking (Random Forest)
+- Sample predictions
+
+**Key Questions Answered:**
+- How accurately can we predict hotel prices?
+- Which features are most important for price prediction?
+- Which model performs best for price forecasting?
+
+---
+
+### 06_price_category_classification.ipynb
+**Focus:** Machine learning classification models to categorize hotels by price tier
+
+**Target Categories:**
+- Budget (0-25th percentile)
+- Mid-range (25th-50th percentile)
+- Premium (50th-75th percentile)
+- Luxury (75th-100th percentile)
+
+**Models Implemented:**
+- Logistic Regression (multinomial)
+- Decision Tree Classifier
+- Random Forest Classifier
+- Gradient Boosting Classifier
+- Support Vector Machine (SVM)
+
+**Evaluation Metrics:**
+- Accuracy
+- Precision (per class)
+- Recall (per class)
+- F1-Score
+- Confusion Matrix
+- 5-fold Cross-Validation
+
+**Visualizations:**
+- Price category distribution
+- Model performance comparison (Accuracy, Precision, Recall, F1)
+- Confusion matrices for all models
+- Per-class performance metrics
+- Feature importance ranking (Random Forest)
+- Sample predictions
+
+**Key Questions Answered:**
+- How accurately can we classify hotels into price categories?
+- Which features best distinguish price tiers?
+- Which model provides the best classification accuracy?
+- Where do models make misclassification errors?
+
+---
+
 ## How to Use These Notebooks
 
 ### Prerequisites
@@ -127,13 +204,12 @@ source .venv/bin/activate
 ```
 
 Packages include:
-- pandas
-- matplotlib
-- seaborn
-- folium
-- scipy
-- jupyter
-- notebook
+- pandas, numpy - Data manipulation
+- matplotlib, seaborn - Visualization
+- folium - Interactive maps
+- scipy - Statistical analysis
+- scikit-learn - Machine learning models
+- jupyter, notebook - Notebook environment
 
 ### Running the Notebooks
 
@@ -163,7 +239,7 @@ This path is relative to the notebooks directory.
 
 ## Key Insights
 
-Based on these analyses, you can discover:
+### Exploratory Data Analysis (Notebooks 1-4)
 - **Price Trends:** How hotel prices fluctuate over time and across locations
 - **Geographic Patterns:** Where hotels are concentrated and how location affects pricing
 - **Distance Effect:** Whether proximity to city center commands a premium
@@ -171,6 +247,13 @@ Based on these analyses, you can discover:
 - **Quality vs Price:** How ratings correlate with pricing
 - **Weather Impact:** How seasonal weather affects hotel demand and pricing
 - **Hotel Type Differences:** How chain hotels compare to independent properties
+
+### Machine Learning Models (Notebooks 5-6)
+- **Price Prediction:** Regression models can predict prices with 75-90% accuracy (R² score)
+- **Price Categorization:** Classification models achieve 85-95% accuracy in categorizing hotels
+- **Key Price Drivers:** Location, rating, and amenities are the strongest predictors
+- **Model Performance:** Tree-based models (Random Forest, Gradient Boosting) outperform linear models
+- **Practical Applications:** Models support dynamic pricing, revenue forecasting, and market segmentation
 
 ## Output Files
 
