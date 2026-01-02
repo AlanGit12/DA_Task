@@ -26,7 +26,7 @@ def main():
     # Load CSV
     df = pd.read_csv(csv_path)
 
-    # Write table (replace = immer neu bauen; später kannst du auf append wechseln)
+    # Write table
     df.to_sql(table, con=engine, if_exists="replace", index=False)
 
     # Quick checks
