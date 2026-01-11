@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9a5a91c77fadc157ad4aab8320791ef9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+            bottom: 50px; right: 50px; width: 180px; height: auto; 
+            background-color: white; z-index:9999; font-size:14px;
+            border:2px solid grey; border-radius: 5px; padding: 10px">
+    <p style="margin-top:0; font-weight: bold; text-align: center;">Locations</p>
+<p style="margin: 5px;"><i class="fa fa-circle" style="color:red"></i> Arosa</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:blue"></i> Basel</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:green"></i> Bern</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:purple"></i> Chur</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:orange"></i> Genf</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:darkred"></i> Interlaken</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:lightblue"></i> Lausanne</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:pink"></i> Luzern</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:darkgreen"></i> St. Gallen</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:cadetblue"></i> St. Moritz</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:beige"></i> Winterthur</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:lightgreen"></i> Zermatt</p><p style="margin: 5px;"><i class="fa fa-circle" style="color:darkblue"></i> Zuerich</p><hr><p style="margin: 5px; font-size: 12px;">Total: 56 hotels</p></div>
+    
+            <div class="folium-map" id="map_9a5a91c77fadc157ad4aab8320791ef9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9a5a91c77fadc157ad4aab8320791ef9 = L.map(
+                "map_9a5a91c77fadc157ad4aab8320791ef9",
+                {
+                    center: [46.8182, 8.2275],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6b158de0c0af8eab66cf340a2a00dff0 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6b158de0c0af8eab66cf340a2a00dff0.addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+            var circle_marker_a32b1c85d953eb59b991284adb77befb = L.circleMarker(
+                [46.948, 7.4474],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_5fda70b5fbc56b204e0a3e086d7c71e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_250181694ee764f4c3561582b9e1234c = $(`<div id="html_250181694ee764f4c3561582b9e1234c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Best Western Plus Hotel Bern</h4>         <p style="margin: 5px 0;"><b>Location:</b> Bern</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 210.99 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.6 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 0.12 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Best Western</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 51, Bern</i></p>     </div>     </div>`)[0];
+                popup_5fda70b5fbc56b204e0a3e086d7c71e5.setContent(html_250181694ee764f4c3561582b9e1234c);
+            
+        
+
+        circle_marker_a32b1c85d953eb59b991284adb77befb.bindPopup(popup_5fda70b5fbc56b204e0a3e086d7c71e5)
+        ;
+
+        
+    
+    
+            var circle_marker_c410a550ab49b554c3dc2e1b2b34070d = L.circleMarker(
+                [46.7833, 9.6833],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_374c1333d1b31ce8be120982e8ed51d3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ddba5fb715c7509fa583a333e271f82 = $(`<div id="html_9ddba5fb715c7509fa583a333e271f82" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">BEST WESTERN HOTEL ZURCHERHOF</h4>         <p style="margin: 5px 0;"><b>Location:</b> Arosa</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 256.63 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.5 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 107.47 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Best Western</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 95, Arosa</i></p>     </div>     </div>`)[0];
+                popup_374c1333d1b31ce8be120982e8ed51d3.setContent(html_9ddba5fb715c7509fa583a333e271f82);
+            
+        
+
+        circle_marker_c410a550ab49b554c3dc2e1b2b34070d.bindPopup(popup_374c1333d1b31ce8be120982e8ed51d3)
+        ;
+
+        
+    
+    
+            var circle_marker_295384bcd3207434d47555fd0f017314 = L.circleMarker(
+                [46.8499, 9.5331],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_eff368bd2a24ac38b97eb8be7bbf541a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f766026c09426148fd0cb9ab90819aa = $(`<div id="html_2f766026c09426148fd0cb9ab90819aa" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">BEST WESTERN HOTEL ZURCHERHOF</h4>         <p style="margin: 5px 0;"><b>Location:</b> Chur</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 254.23 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.1 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 94.90 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Best Western</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 4, Chur</i></p>     </div>     </div>`)[0];
+                popup_eff368bd2a24ac38b97eb8be7bbf541a.setContent(html_2f766026c09426148fd0cb9ab90819aa);
+            
+        
+
+        circle_marker_295384bcd3207434d47555fd0f017314.bindPopup(popup_eff368bd2a24ac38b97eb8be7bbf541a)
+        ;
+
+        
+    
+    
+            var circle_marker_3e3acd02dc33cb6ade030ff0bc5d9f73 = L.circleMarker(
+                [46.6863, 7.8632],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_f1dca59ea0f2d88a7429b4fcdcf09482 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_06744a335929b28a4c4dc57c67cbfd77 = $(`<div id="html_06744a335929b28a4c4dc57c67cbfd77" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">BEST WESTERN HOTEL ZURCHERHOF</h4>         <p style="margin: 5px 0;"><b>Location:</b> Interlaken</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 259.51 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.0 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 92.36 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Best Western</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 34, Interlaken</i></p>     </div>     </div>`)[0];
+                popup_f1dca59ea0f2d88a7429b4fcdcf09482.setContent(html_06744a335929b28a4c4dc57c67cbfd77);
+            
+        
+
+        circle_marker_3e3acd02dc33cb6ade030ff0bc5d9f73.bindPopup(popup_f1dca59ea0f2d88a7429b4fcdcf09482)
+        ;
+
+        
+    
+    
+            var circle_marker_2d0232f826413d9b5d9cccd1b0e9dae2 = L.circleMarker(
+                [47.0502, 8.3093],
+                {"bubblingMouseEvents": true, "color": "pink", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "pink", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_8b35017cf1f5aa731c05382080bf84fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d114441469f6aad36fa00f750b50c794 = $(`<div id="html_d114441469f6aad36fa00f750b50c794" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">BEST WESTERN HOTEL ZURCHERHOF</h4>         <p style="margin: 5px 0;"><b>Location:</b> Luzern</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 234.76 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.2 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 40.25 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Best Western</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 43, Luzern</i></p>     </div>     </div>`)[0];
+                popup_8b35017cf1f5aa731c05382080bf84fe.setContent(html_d114441469f6aad36fa00f750b50c794);
+            
+        
+
+        circle_marker_2d0232f826413d9b5d9cccd1b0e9dae2.bindPopup(popup_8b35017cf1f5aa731c05382080bf84fe)
+        ;
+
+        
+    
+    
+            var circle_marker_ae171395543c6913cfb1ca87db5ac0ae = L.circleMarker(
+                [47.4245, 9.3767],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_f23e0bdaef5d4f19b58bd2ffa7fd1271 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_68b29a6dad877057946289d1d0e4ab7c = $(`<div id="html_68b29a6dad877057946289d1d0e4ab7c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">BEST WESTERN HOTEL ZURCHERHOF</h4>         <p style="margin: 5px 0;"><b>Location:</b> St. Gallen</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 253.42 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.9 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 62.88 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Best Western</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 1, St. Gallen</i></p>     </div>     </div>`)[0];
+                popup_f23e0bdaef5d4f19b58bd2ffa7fd1271.setContent(html_68b29a6dad877057946289d1d0e4ab7c);
+            
+        
+
+        circle_marker_ae171395543c6913cfb1ca87db5ac0ae.bindPopup(popup_f23e0bdaef5d4f19b58bd2ffa7fd1271)
+        ;
+
+        
+    
+    
+            var circle_marker_75a37c80656456b5eae752356fe9ab9c = L.circleMarker(
+                [46.4908, 9.8355],
+                {"bubblingMouseEvents": true, "color": "cadetblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "cadetblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_e50f953b21ef7120efed7d0ecd9b3070 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e00e5f319fc0e2adcea46d72fb3620f2 = $(`<div id="html_e00e5f319fc0e2adcea46d72fb3620f2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">BEST WESTERN HOTEL ZURCHERHOF</h4>         <p style="margin: 5px 0;"><b>Location:</b> St. Moritz</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 255.98 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.7 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 138.28 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Best Western</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Kirchgasse 97, St. Moritz</i></p>     </div>     </div>`)[0];
+                popup_e50f953b21ef7120efed7d0ecd9b3070.setContent(html_e00e5f319fc0e2adcea46d72fb3620f2);
+            
+        
+
+        circle_marker_75a37c80656456b5eae752356fe9ab9c.bindPopup(popup_e50f953b21ef7120efed7d0ecd9b3070)
+        ;
+
+        
+    
+    
+            var circle_marker_b8f519b069fd622161c23226d5b3b753 = L.circleMarker(
+                [47.5, 8.75],
+                {"bubblingMouseEvents": true, "color": "beige", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "beige", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_3acc4f62c86ed224d58baa560275aaa8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3ef0c3d6fdbcf38eb68b208e07e8593f = $(`<div id="html_3ef0c3d6fdbcf38eb68b208e07e8593f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">BEST WESTERN HOTEL ZURCHERHOF</h4>         <p style="margin: 5px 0;"><b>Location:</b> Winterthur</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 253.07 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.1 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 20.79 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Best Western</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 96, Winterthur</i></p>     </div>     </div>`)[0];
+                popup_3acc4f62c86ed224d58baa560275aaa8.setContent(html_3ef0c3d6fdbcf38eb68b208e07e8593f);
+            
+        
+
+        circle_marker_b8f519b069fd622161c23226d5b3b753.bindPopup(popup_3acc4f62c86ed224d58baa560275aaa8)
+        ;
+
+        
+    
+    
+            var circle_marker_f3fab24f7c6e52bfe8ccf2f41a93d360 = L.circleMarker(
+                [46.0207, 7.7491],
+                {"bubblingMouseEvents": true, "color": "lightgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_0a38deadc196d542fb28320e4f319c63 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4b54070123a3cdc4ee8abd3c5d914eca = $(`<div id="html_4b54070123a3cdc4ee8abd3c5d914eca" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">BEST WESTERN HOTEL ZURCHERHOF</h4>         <p style="margin: 5px 0;"><b>Location:</b> Zermatt</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 256.45 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.3 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 162.35 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Best Western</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 96, Zermatt</i></p>     </div>     </div>`)[0];
+                popup_0a38deadc196d542fb28320e4f319c63.setContent(html_4b54070123a3cdc4ee8abd3c5d914eca);
+            
+        
+
+        circle_marker_f3fab24f7c6e52bfe8ccf2f41a93d360.bindPopup(popup_0a38deadc196d542fb28320e4f319c63)
+        ;
+
+        
+    
+    
+            var circle_marker_f072eb2ce24c7ba24f448a885dee786b = L.circleMarker(
+                [47.3769, 8.5417],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_bbf23a3b88299c699cf87cb38c24f0b9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_716c4d67881e2a9a81c6f66cb570533a = $(`<div id="html_716c4d67881e2a9a81c6f66cb570533a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">BEST WESTERN HOTEL ZURCHERHOF</h4>         <p style="margin: 5px 0;"><b>Location:</b> Zuerich</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 252.74 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.2 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 0.29 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Best Western</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Kirchgasse 63, Zuerich</i></p>     </div>     </div>`)[0];
+                popup_bbf23a3b88299c699cf87cb38c24f0b9.setContent(html_716c4d67881e2a9a81c6f66cb570533a);
+            
+        
+
+        circle_marker_f072eb2ce24c7ba24f448a885dee786b.bindPopup(popup_bbf23a3b88299c699cf87cb38c24f0b9)
+        ;
+
+        
+    
+    
+            var circle_marker_46f2f5cbde19bd9e20800621ed45a170 = L.circleMarker(
+                [46.2044, 6.1432],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_61a66bc8166ec0399c765e032c334c50 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0685a419c535d543c3b3f1de78de7b2f = $(`<div id="html_0685a419c535d543c3b3f1de78de7b2f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">DESIGN HOTEL F6</h4>         <p style="margin: 5px 0;"><b>Location:</b> Genf</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 367.75 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.4 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 1.22 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 43, Genf</i></p>     </div>     </div>`)[0];
+                popup_61a66bc8166ec0399c765e032c334c50.setContent(html_0685a419c535d543c3b3f1de78de7b2f);
+            
+        
+
+        circle_marker_46f2f5cbde19bd9e20800621ed45a170.bindPopup(popup_61a66bc8166ec0399c765e032c334c50)
+        ;
+
+        
+    
+    
+            var circle_marker_567b148bef8dff770e4aed42ace83509 = L.circleMarker(
+                [46.5197, 6.6323],
+                {"bubblingMouseEvents": true, "color": "lightblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_242c306ed7beb90dd2dc23ad76a770d0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_07bf10e7a5afec8e47565744c0a5cc3c = $(`<div id="html_07bf10e7a5afec8e47565744c0a5cc3c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">DESIGN HOTEL F6</h4>         <p style="margin: 5px 0;"><b>Location:</b> Lausanne</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 353.62 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.2 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 50.38 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 22, Lausanne</i></p>     </div>     </div>`)[0];
+                popup_242c306ed7beb90dd2dc23ad76a770d0.setContent(html_07bf10e7a5afec8e47565744c0a5cc3c);
+            
+        
+
+        circle_marker_567b148bef8dff770e4aed42ace83509.bindPopup(popup_242c306ed7beb90dd2dc23ad76a770d0)
+        ;
+
+        
+    
+    
+            var circle_marker_5d2ed93f0c9cd764f35249374ee7ee6d = L.circleMarker(
+                [46.213544261444135, 6.139931890902253],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_6f8c4ce2b3b038aecde660c49260fb31 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3af9a520f21b04c6102c7156e59297d3 = $(`<div id="html_3af9a520f21b04c6102c7156e59297d3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">INTERCONTINENTAL GENEVA</h4>         <p style="margin: 5px 0;"><b>Location:</b> Genf</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 588.10 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.3 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 2.39 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> IHG (InterContinental)</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 55, Genf</i></p>     </div>     </div>`)[0];
+                popup_6f8c4ce2b3b038aecde660c49260fb31.setContent(html_3af9a520f21b04c6102c7156e59297d3);
+            
+        
+
+        circle_marker_5d2ed93f0c9cd764f35249374ee7ee6d.bindPopup(popup_6f8c4ce2b3b038aecde660c49260fb31)
+        ;
+
+        
+    
+    
+            var circle_marker_d211dbada364f7e60c6744dd45fe2d22 = L.circleMarker(
+                [46.5115549168676, 6.624234327536669],
+                {"bubblingMouseEvents": true, "color": "lightblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_cdb1a75eba76380ac9e76559246e0366 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c7ab235cf3a5d8a147c7bc12afa3ef09 = $(`<div id="html_c7ab235cf3a5d8a147c7bc12afa3ef09" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">INTERCONTINENTAL GENEVA</h4>         <p style="margin: 5px 0;"><b>Location:</b> Lausanne</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 579.46 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.3 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 50.46 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> IHG (InterContinental)</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Hauptstrasse 85, Lausanne</i></p>     </div>     </div>`)[0];
+                popup_cdb1a75eba76380ac9e76559246e0366.setContent(html_c7ab235cf3a5d8a147c7bc12afa3ef09);
+            
+        
+
+        circle_marker_d211dbada364f7e60c6744dd45fe2d22.bindPopup(popup_cdb1a75eba76380ac9e76559246e0366)
+        ;
+
+        
+    
+    
+            var circle_marker_5260de5857c01edca9cd5a6d1051672f = L.circleMarker(
+                [46.790249887326944, 9.685374520627336],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_0d6bbef1b73081f1c2f0dd0b582c5abe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a6cc2ab2d97b668f38feffc6e6e328a = $(`<div id="html_1a6cc2ab2d97b668f38feffc6e6e328a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Zurich Marriott Hotel</h4>         <p style="margin: 5px 0;"><b>Location:</b> Arosa</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 516.24 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.5 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 108.23 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Marriott</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 10, Arosa</i></p>     </div>     </div>`)[0];
+                popup_0d6bbef1b73081f1c2f0dd0b582c5abe.setContent(html_1a6cc2ab2d97b668f38feffc6e6e328a);
+            
+        
+
+        circle_marker_5260de5857c01edca9cd5a6d1051672f.bindPopup(popup_0d6bbef1b73081f1c2f0dd0b582c5abe)
+        ;
+
+        
+    
+    
+            var circle_marker_33bbddbd1ceecd1110250a8f557be3bc = L.circleMarker(
+                [46.856042565465486, 9.537694635733876],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_4b3b507a0a34e3da6a4ece03fbf36615 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef1d520c3e0d5653016c5deeb54c3e96 = $(`<div id="html_ef1d520c3e0d5653016c5deeb54c3e96" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Zurich Marriott Hotel</h4>         <p style="margin: 5px 0;"><b>Location:</b> Chur</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 502.55 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.6 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 95.65 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Marriott</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 42, Chur</i></p>     </div>     </div>`)[0];
+                popup_4b3b507a0a34e3da6a4ece03fbf36615.setContent(html_ef1d520c3e0d5653016c5deeb54c3e96);
+            
+        
+
+        circle_marker_33bbddbd1ceecd1110250a8f557be3bc.bindPopup(popup_4b3b507a0a34e3da6a4ece03fbf36615)
+        ;
+
+        
+    
+    
+            var circle_marker_4e9cfe2a0363fce275bf64c27331839d = L.circleMarker(
+                [46.6870245618291, 7.872662315279587],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_a857dc40282fe882e99901f6899107eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_04269adb00aa638e57119e0232f37d17 = $(`<div id="html_04269adb00aa638e57119e0232f37d17" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Zurich Marriott Hotel</h4>         <p style="margin: 5px 0;"><b>Location:</b> Interlaken</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 521.18 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.9 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 92.87 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Marriott</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Kirchgasse 21, Interlaken</i></p>     </div>     </div>`)[0];
+                popup_a857dc40282fe882e99901f6899107eb.setContent(html_04269adb00aa638e57119e0232f37d17);
+            
+        
+
+        circle_marker_4e9cfe2a0363fce275bf64c27331839d.bindPopup(popup_a857dc40282fe882e99901f6899107eb)
+        ;
+
+        
+    
+    
+            var circle_marker_c6a85ab797be61807dda3cfbc167bfcf = L.circleMarker(
+                [47.047770687544165, 8.310340812625466],
+                {"bubblingMouseEvents": true, "color": "pink", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "pink", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_9b41e8785ef16233993299124b1b8073 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e94a75083bf74e60f185a41a863a825e = $(`<div id="html_e94a75083bf74e60f185a41a863a825e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Zurich Marriott Hotel</h4>         <p style="margin: 5px 0;"><b>Location:</b> Luzern</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 459.71 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.3 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 40.86 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Marriott</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 95, Luzern</i></p>     </div>     </div>`)[0];
+                popup_9b41e8785ef16233993299124b1b8073.setContent(html_e94a75083bf74e60f185a41a863a825e);
+            
+        
+
+        circle_marker_c6a85ab797be61807dda3cfbc167bfcf.bindPopup(popup_9b41e8785ef16233993299124b1b8073)
+        ;
+
+        
+    
+    
+            var circle_marker_4e631077e3dfccca1b574851633d7ec3 = L.circleMarker(
+                [47.43108809328506, 9.379070395047284],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_3af12e30fb15eecd689d1a740f74ada2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d4022dd4a5eb58c5c13b8f34c0b97fa = $(`<div id="html_3d4022dd4a5eb58c5c13b8f34c0b97fa" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Zurich Marriott Hotel</h4>         <p style="margin: 5px 0;"><b>Location:</b> St. Gallen</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 497.53 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.2 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 63.12 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Marriott</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 84, St. Gallen</i></p>     </div>     </div>`)[0];
+                popup_3af12e30fb15eecd689d1a740f74ada2.setContent(html_3d4022dd4a5eb58c5c13b8f34c0b97fa);
+            
+        
+
+        circle_marker_4e631077e3dfccca1b574851633d7ec3.bindPopup(popup_3af12e30fb15eecd689d1a740f74ada2)
+        ;
+
+        
+    
+    
+            var circle_marker_4c13e2450c4ea81693195cd09a4561e0 = L.circleMarker(
+                [46.49803413800622, 9.837047042905136],
+                {"bubblingMouseEvents": true, "color": "cadetblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "cadetblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_6b83611a115c76222efe79c165c8aa9b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1dbf28705c932660aca337a3184e536d = $(`<div id="html_1dbf28705c932660aca337a3184e536d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Zurich Marriott Hotel</h4>         <p style="margin: 5px 0;"><b>Location:</b> St. Moritz</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 519.74 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.2 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 139.08 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Marriott</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Hauptstrasse 11, St. Moritz</i></p>     </div>     </div>`)[0];
+                popup_6b83611a115c76222efe79c165c8aa9b.setContent(html_1dbf28705c932660aca337a3184e536d);
+            
+        
+
+        circle_marker_4c13e2450c4ea81693195cd09a4561e0.bindPopup(popup_6b83611a115c76222efe79c165c8aa9b)
+        ;
+
+        
+    
+    
+            var circle_marker_6aead0382790e61791cc07cb620842af = L.circleMarker(
+                [47.5040914367243, 8.740916487673113],
+                {"bubblingMouseEvents": true, "color": "beige", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "beige", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_43cf9ab316eb13f782118932c8c860c8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_288b6b47826fa782c98f9c8ac8698b3d = $(`<div id="html_288b6b47826fa782c98f9c8ac8698b3d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Zurich Marriott Hotel</h4>         <p style="margin: 5px 0;"><b>Location:</b> Winterthur</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 500.03 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.6 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 20.48 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Marriott</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 6, Winterthur</i></p>     </div>     </div>`)[0];
+                popup_43cf9ab316eb13f782118932c8c860c8.setContent(html_288b6b47826fa782c98f9c8ac8698b3d);
+            
+        
+
+        circle_marker_6aead0382790e61791cc07cb620842af.bindPopup(popup_43cf9ab316eb13f782118932c8c860c8)
+        ;
+
+        
+    
+    
+            var circle_marker_e1dd991ced2cac18d1ccf9b15c93d714 = L.circleMarker(
+                [46.01525796551303, 7.744887759272043],
+                {"bubblingMouseEvents": true, "color": "lightgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_18a30b85ab9a00b9ebd8dd7aa859cdca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fade6fa3a4a4beff55bfb60c47ac5334 = $(`<div id="html_fade6fa3a4a4beff55bfb60c47ac5334" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Zurich Marriott Hotel</h4>         <p style="margin: 5px 0;"><b>Location:</b> Zermatt</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 518.78 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.4 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 163.00 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Marriott</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 19, Zermatt</i></p>     </div>     </div>`)[0];
+                popup_18a30b85ab9a00b9ebd8dd7aa859cdca.setContent(html_fade6fa3a4a4beff55bfb60c47ac5334);
+            
+        
+
+        circle_marker_e1dd991ced2cac18d1ccf9b15c93d714.bindPopup(popup_18a30b85ab9a00b9ebd8dd7aa859cdca)
+        ;
+
+        
+    
+    
+            var circle_marker_ffb0b12e510f629970ad613df302e6ba = L.circleMarker(
+                [47.36849583953847, 8.536355817727221],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_31bad1f60babb4d6dc970ab4f1991546 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24bc0421d0b6b8854d595f34b78f073f = $(`<div id="html_24bc0421d0b6b8854d595f34b78f073f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Zurich Marriott Hotel</h4>         <p style="margin: 5px 0;"><b>Location:</b> Zuerich</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 503.05 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.5 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 0.63 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Marriott</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 63, Zuerich</i></p>     </div>     </div>`)[0];
+                popup_31bad1f60babb4d6dc970ab4f1991546.setContent(html_24bc0421d0b6b8854d595f34b78f073f);
+            
+        
+
+        circle_marker_ffb0b12e510f629970ad613df302e6ba.bindPopup(popup_31bad1f60babb4d6dc970ab4f1991546)
+        ;
+
+        
+    
+    
+            var circle_marker_e55aa987b2ab389136cbff5f6036a705 = L.circleMarker(
+                [47.5596, 7.5886],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_41bb5fcab082f2d11b914a1a83c3bd95 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_210af435581dc487127c0a58ffcb3a93 = $(`<div id="html_210af435581dc487127c0a58ffcb3a93" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL BAD BUBENDORF</h4>         <p style="margin: 5px 0;"><b>Location:</b> Basel</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 174.25 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.8 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 2.14 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Kirchgasse 11, Basel</i></p>     </div>     </div>`)[0];
+                popup_41bb5fcab082f2d11b914a1a83c3bd95.setContent(html_210af435581dc487127c0a58ffcb3a93);
+            
+        
+
+        circle_marker_e55aa987b2ab389136cbff5f6036a705.bindPopup(popup_41bb5fcab082f2d11b914a1a83c3bd95)
+        ;
+
+        
+    
+    
+            var circle_marker_5c094fcf76ba67c5748fd74a493b46e3 = L.circleMarker(
+                [46.78872737777057, 9.677893287158803],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_6d9ad601b82f86687462ca861d3b5e09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf3fadca385b6eb1b82eb0da0aa85e81 = $(`<div id="html_bf3fadca385b6eb1b82eb0da0aa85e81" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL CITY</h4>         <p style="margin: 5px 0;"><b>Location:</b> Arosa</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 219.69 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.3 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 107.95 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Hauptstrasse 54, Arosa</i></p>     </div>     </div>`)[0];
+                popup_6d9ad601b82f86687462ca861d3b5e09.setContent(html_bf3fadca385b6eb1b82eb0da0aa85e81);
+            
+        
+
+        circle_marker_5c094fcf76ba67c5748fd74a493b46e3.bindPopup(popup_6d9ad601b82f86687462ca861d3b5e09)
+        ;
+
+        
+    
+    
+            var circle_marker_9fc56ce082a23e2f6213d7334d6e527a = L.circleMarker(
+                [46.84470723868467, 9.52148028123086],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_e2a9b70d59bad86e976a880b0d89042a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf37cf1a12fc94e71acfa0f3d3cf7fca = $(`<div id="html_cf37cf1a12fc94e71acfa0f3d3cf7fca" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL CITY</h4>         <p style="margin: 5px 0;"><b>Location:</b> Chur</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 219.67 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.7 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 95.38 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Kirchgasse 43, Chur</i></p>     </div>     </div>`)[0];
+                popup_e2a9b70d59bad86e976a880b0d89042a.setContent(html_cf37cf1a12fc94e71acfa0f3d3cf7fca);
+            
+        
+
+        circle_marker_9fc56ce082a23e2f6213d7334d6e527a.bindPopup(popup_e2a9b70d59bad86e976a880b0d89042a)
+        ;
+
+        
+    
+    
+            var circle_marker_c6a9ce740bcd7978772a8dc8b02fb0ef = L.circleMarker(
+                [46.676979112881966, 7.8806661835085],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_dc290166c5814e2e7d8567dfa8bef544 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_44f61ed57e2230387b257aef888a3b87 = $(`<div id="html_44f61ed57e2230387b257aef888a3b87" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL CITY</h4>         <p style="margin: 5px 0;"><b>Location:</b> Interlaken</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 225.15 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.3 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 91.98 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Hauptstrasse 50, Interlaken</i></p>     </div>     </div>`)[0];
+                popup_dc290166c5814e2e7d8567dfa8bef544.setContent(html_44f61ed57e2230387b257aef888a3b87);
+            
+        
+
+        circle_marker_c6a9ce740bcd7978772a8dc8b02fb0ef.bindPopup(popup_dc290166c5814e2e7d8567dfa8bef544)
+        ;
+
+        
+    
+    
+            var circle_marker_261c7c1fb41578ded921bf58515d1c29 = L.circleMarker(
+                [47.05612141540986, 8.31366524022668],
+                {"bubblingMouseEvents": true, "color": "pink", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "pink", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_2563bed913ba92646d86cdb5049e7648 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8eff195f46f4a9f537c5751e26389979 = $(`<div id="html_8eff195f46f4a9f537c5751e26389979" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL CITY</h4>         <p style="margin: 5px 0;"><b>Location:</b> Luzern</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 205.92 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.7 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 39.95 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Kirchgasse 67, Luzern</i></p>     </div>     </div>`)[0];
+                popup_2563bed913ba92646d86cdb5049e7648.setContent(html_8eff195f46f4a9f537c5751e26389979);
+            
+        
+
+        circle_marker_261c7c1fb41578ded921bf58515d1c29.bindPopup(popup_2563bed913ba92646d86cdb5049e7648)
+        ;
+
+        
+    
+    
+            var circle_marker_68ae2f866dc3b16892eca893ff33eae3 = L.circleMarker(
+                [47.41134554592792, 9.385865071918014],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_f34d8cf74a81358e49b806d0ae8ea910 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_65cb7dc8d566a132de0cde5cfaf570b4 = $(`<div id="html_65cb7dc8d566a132de0cde5cfaf570b4" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL CITY</h4>         <p style="margin: 5px 0;"><b>Location:</b> St. Gallen</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 217.36 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.8 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 63.51 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 58, St. Gallen</i></p>     </div>     </div>`)[0];
+                popup_f34d8cf74a81358e49b806d0ae8ea910.setContent(html_65cb7dc8d566a132de0cde5cfaf570b4);
+            
+        
+
+        circle_marker_68ae2f866dc3b16892eca893ff33eae3.bindPopup(popup_f34d8cf74a81358e49b806d0ae8ea910)
+        ;
+
+        
+    
+    
+            var circle_marker_c2544d01f68abd1f753694eac363deb0 = L.circleMarker(
+                [46.477336099750474, 9.830678217670306],
+                {"bubblingMouseEvents": true, "color": "cadetblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "cadetblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_1a6c58c71cc4fb9d87b822e6343d4122 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a82e002eafa5488eb9b9a13331446eeb = $(`<div id="html_a82e002eafa5488eb9b9a13331446eeb" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL CITY</h4>         <p style="margin: 5px 0;"><b>Location:</b> St. Moritz</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 219.77 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.5 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 138.70 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Kirchgasse 7, St. Moritz</i></p>     </div>     </div>`)[0];
+                popup_1a6c58c71cc4fb9d87b822e6343d4122.setContent(html_a82e002eafa5488eb9b9a13331446eeb);
+            
+        
+
+        circle_marker_c2544d01f68abd1f753694eac363deb0.bindPopup(popup_1a6c58c71cc4fb9d87b822e6343d4122)
+        ;
+
+        
+    
+    
+            var circle_marker_eef14afb7f83aa3c0f3afde24aecdb25 = L.circleMarker(
+                [47.51958093402546, 8.755599990394163],
+                {"bubblingMouseEvents": true, "color": "beige", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "beige", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_fe28488ad6190ee2ea130add54eb0c57 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ed1ea7f347fcfd3668b7d93094274dbb = $(`<div id="html_ed1ea7f347fcfd3668b7d93094274dbb" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL CITY</h4>         <p style="margin: 5px 0;"><b>Location:</b> Winterthur</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 219.51 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.7 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 21.28 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 66, Winterthur</i></p>     </div>     </div>`)[0];
+                popup_fe28488ad6190ee2ea130add54eb0c57.setContent(html_ed1ea7f347fcfd3668b7d93094274dbb);
+            
+        
+
+        circle_marker_eef14afb7f83aa3c0f3afde24aecdb25.bindPopup(popup_fe28488ad6190ee2ea130add54eb0c57)
+        ;
+
+        
+    
+    
+            var circle_marker_ae0d2988b1ced9ae4eee160d1dff48a9 = L.circleMarker(
+                [46.022977989750984, 7.7564845700395955],
+                {"bubblingMouseEvents": true, "color": "lightgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_f793a62478edba2703b3bfb4db88fcec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e24cbdfd6b563de1fc58ed837f1e0c7c = $(`<div id="html_e24cbdfd6b563de1fc58ed837f1e0c7c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL CITY</h4>         <p style="margin: 5px 0;"><b>Location:</b> Zermatt</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 221.32 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.7 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 162.08 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 67, Zermatt</i></p>     </div>     </div>`)[0];
+                popup_f793a62478edba2703b3bfb4db88fcec.setContent(html_e24cbdfd6b563de1fc58ed837f1e0c7c);
+            
+        
+
+        circle_marker_ae0d2988b1ced9ae4eee160d1dff48a9.bindPopup(popup_f793a62478edba2703b3bfb4db88fcec)
+        ;
+
+        
+    
+    
+            var circle_marker_2b15a0b2b2b61f97a103813570037645 = L.circleMarker(
+                [47.390614076807594, 8.55273999646185],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_dc663e1e9ea85f795f701c4dd93d0cb9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bfe9dcc6004bc0af60f781fec4530f21 = $(`<div id="html_bfe9dcc6004bc0af60f781fec4530f21" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL CITY</h4>         <p style="margin: 5px 0;"><b>Location:</b> Zuerich</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 219.09 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.6 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 0.48 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 15, Zuerich</i></p>     </div>     </div>`)[0];
+                popup_dc663e1e9ea85f795f701c4dd93d0cb9.setContent(html_bfe9dcc6004bc0af60f781fec4530f21);
+            
+        
+
+        circle_marker_2b15a0b2b2b61f97a103813570037645.bindPopup(popup_dc663e1e9ea85f795f701c4dd93d0cb9)
+        ;
+
+        
+    
+    
+            var circle_marker_e65f9ea9f9ecaf030ac1cfeb0095d2ba = L.circleMarker(
+                [46.767042884317846, 9.655226014634241],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_a58d69c4ba327d8a43ff360a2aed4286 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f3fd4282d3e49a2eac0888a74ce284c7 = $(`<div id="html_f3fd4282d3e49a2eac0888a74ce284c7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL MONTANA</h4>         <p style="margin: 5px 0;"><b>Location:</b> Arosa</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 301.46 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.1 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 108.41 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 9, Arosa</i></p>     </div>     </div>`)[0];
+                popup_a58d69c4ba327d8a43ff360a2aed4286.setContent(html_f3fd4282d3e49a2eac0888a74ce284c7);
+            
+        
+
+        circle_marker_e65f9ea9f9ecaf030ac1cfeb0095d2ba.bindPopup(popup_a58d69c4ba327d8a43ff360a2aed4286)
+        ;
+
+        
+    
+    
+            var circle_marker_136ae96d5890691f7bfeb12d61b16fd4 = L.circleMarker(
+                [46.83882718288354, 9.519164452558542],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_a5fde283e04c4f3679b403ed5bb8390e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bc87a35d0c66f251036c43c0b65b4f3a = $(`<div id="html_bc87a35d0c66f251036c43c0b65b4f3a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL MONTANA</h4>         <p style="margin: 5px 0;"><b>Location:</b> Chur</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 155.79 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.3 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 95.84 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 14, Chur</i></p>     </div>     </div>`)[0];
+                popup_a5fde283e04c4f3679b403ed5bb8390e.setContent(html_bc87a35d0c66f251036c43c0b65b4f3a);
+            
+        
+
+        circle_marker_136ae96d5890691f7bfeb12d61b16fd4.bindPopup(popup_a5fde283e04c4f3679b403ed5bb8390e)
+        ;
+
+        
+    
+    
+            var circle_marker_67de1faf69a6dc4b2aa29932fdd70e65 = L.circleMarker(
+                [46.66895897061518, 7.889774582860103],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_4f84ec2aafb40e78934bd33cc6a91af1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1035fd431673da07d2d38822344cb6c6 = $(`<div id="html_1035fd431673da07d2d38822344cb6c6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL MONTANA</h4>         <p style="margin: 5px 0;"><b>Location:</b> Interlaken</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 149.12 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.0 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 92.51 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 65, Interlaken</i></p>     </div>     </div>`)[0];
+                popup_4f84ec2aafb40e78934bd33cc6a91af1.setContent(html_1035fd431673da07d2d38822344cb6c6);
+            
+        
+
+        circle_marker_67de1faf69a6dc4b2aa29932fdd70e65.bindPopup(popup_4f84ec2aafb40e78934bd33cc6a91af1)
+        ;
+
+        
+    
+    
+            var circle_marker_ed0f06917b9cc2e49a6e2a02c9c5e5c2 = L.circleMarker(
+                [47.072782057588356, 8.29818067284791],
+                {"bubblingMouseEvents": true, "color": "pink", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "pink", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_f40d63d69f3117be0b3b127811776b9d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5e4b769a059503e2759bd7bf4dbef8f9 = $(`<div id="html_5e4b769a059503e2759bd7bf4dbef8f9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL MONTANA</h4>         <p style="margin: 5px 0;"><b>Location:</b> Luzern</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 138.60 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.1 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 40.53 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 41, Luzern</i></p>     </div>     </div>`)[0];
+                popup_f40d63d69f3117be0b3b127811776b9d.setContent(html_5e4b769a059503e2759bd7bf4dbef8f9);
+            
+        
+
+        circle_marker_ed0f06917b9cc2e49a6e2a02c9c5e5c2.bindPopup(popup_f40d63d69f3117be0b3b127811776b9d)
+        ;
+
+        
+    
+    
+            var circle_marker_75d93eb849989946660433458b766e59 = L.circleMarker(
+                [47.43382631991769, 9.37043791406364],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_cd5b628d541b949a93abd5c3313f13b0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d73efa5d04ab60e5a877b6a96314eec = $(`<div id="html_4d73efa5d04ab60e5a877b6a96314eec" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL MONTANA</h4>         <p style="margin: 5px 0;"><b>Location:</b> St. Gallen</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 150.64 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.3 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 63.52 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 9, St. Gallen</i></p>     </div>     </div>`)[0];
+                popup_cd5b628d541b949a93abd5c3313f13b0.setContent(html_4d73efa5d04ab60e5a877b6a96314eec);
+            
+        
+
+        circle_marker_75d93eb849989946660433458b766e59.bindPopup(popup_cd5b628d541b949a93abd5c3313f13b0)
+        ;
+
+        
+    
+    
+            var circle_marker_027f622daae988749cf1207fbb084dfa = L.circleMarker(
+                [46.51567285538443, 9.833031111155243],
+                {"bubblingMouseEvents": true, "color": "cadetblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "cadetblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_69de2e96756dbdcb28af8fe2b8eb7f51 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c1f6ea84d37e8da5bab9a466385473a8 = $(`<div id="html_c1f6ea84d37e8da5bab9a466385473a8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL MONTANA</h4>         <p style="margin: 5px 0;"><b>Location:</b> St. Moritz</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 299.48 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.0 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 139.22 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Kirchgasse 7, St. Moritz</i></p>     </div>     </div>`)[0];
+                popup_69de2e96756dbdcb28af8fe2b8eb7f51.setContent(html_c1f6ea84d37e8da5bab9a466385473a8);
+            
+        
+
+        circle_marker_027f622daae988749cf1207fbb084dfa.bindPopup(popup_69de2e96756dbdcb28af8fe2b8eb7f51)
+        ;
+
+        
+    
+    
+            var circle_marker_efd9b36e0abf4a5a47ca10ba0940541f = L.circleMarker(
+                [47.485892809989885, 8.734797650461639],
+                {"bubblingMouseEvents": true, "color": "beige", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "beige", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_ad5827988251124a20c620c0a2cd0eb9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf6d9049174c5bc596f0271743596ae9 = $(`<div id="html_cf6d9049174c5bc596f0271743596ae9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL MONTANA</h4>         <p style="margin: 5px 0;"><b>Location:</b> Winterthur</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 159.84 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.4 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 20.89 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 30, Winterthur</i></p>     </div>     </div>`)[0];
+                popup_ad5827988251124a20c620c0a2cd0eb9.setContent(html_cf6d9049174c5bc596f0271743596ae9);
+            
+        
+
+        circle_marker_efd9b36e0abf4a5a47ca10ba0940541f.bindPopup(popup_ad5827988251124a20c620c0a2cd0eb9)
+        ;
+
+        
+    
+    
+            var circle_marker_440a53398e8e291b88da28b27c4d7d01 = L.circleMarker(
+                [46.024382088049784, 7.734864496511377],
+                {"bubblingMouseEvents": true, "color": "lightgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_68cc436b4eee7921ef1277bfb7e9d1b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f21f6a05717923ea4380362092f1af64 = $(`<div id="html_f21f6a05717923ea4380362092f1af64" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL MONTANA</h4>         <p style="margin: 5px 0;"><b>Location:</b> Zermatt</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 308.19 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.7 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 162.68 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 29, Zermatt</i></p>     </div>     </div>`)[0];
+                popup_68cc436b4eee7921ef1277bfb7e9d1b3.setContent(html_f21f6a05717923ea4380362092f1af64);
+            
+        
+
+        circle_marker_440a53398e8e291b88da28b27c4d7d01.bindPopup(popup_68cc436b4eee7921ef1277bfb7e9d1b3)
+        ;
+
+        
+    
+    
+            var circle_marker_bf98f47cb92cedd7010d76e5dad76713 = L.circleMarker(
+                [47.381975159413415, 8.56556937301615],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_22f8b6014cb798e8aa51d3325dc7572a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7a0c2ba873816a8a6cb709fc0674a170 = $(`<div id="html_7a0c2ba873816a8a6cb709fc0674a170" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">HOTEL MONTANA</h4>         <p style="margin: 5px 0;"><b>Location:</b> Zuerich</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 159.17 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.7 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 0.65 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 41, Zuerich</i></p>     </div>     </div>`)[0];
+                popup_22f8b6014cb798e8aa51d3325dc7572a.setContent(html_7a0c2ba873816a8a6cb709fc0674a170);
+            
+        
+
+        circle_marker_bf98f47cb92cedd7010d76e5dad76713.bindPopup(popup_22f8b6014cb798e8aa51d3325dc7572a)
+        ;
+
+        
+    
+    
+            var circle_marker_0e5a6ab6f24237a72044ec428afe8879 = L.circleMarker(
+                [47.55758801010281, 7.582986415183146],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_49189740faf6e01ae415b18adfa67aef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_765be52977fab0dba4cd77918787293c = $(`<div id="html_765be52977fab0dba4cd77918787293c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">ibis Basel Bahnhof</h4>         <p style="margin: 5px 0;"><b>Location:</b> Basel</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 111.38 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.0 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 1.46 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Accor (ibis)</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 49, Basel</i></p>     </div>     </div>`)[0];
+                popup_49189740faf6e01ae415b18adfa67aef.setContent(html_765be52977fab0dba4cd77918787293c);
+            
+        
+
+        circle_marker_0e5a6ab6f24237a72044ec428afe8879.bindPopup(popup_49189740faf6e01ae415b18adfa67aef)
+        ;
+
+        
+    
+    
+            var circle_marker_d45f77884b1820504d497d689ce35674 = L.circleMarker(
+                [46.224301504259806, 6.143581051747058],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_abb1e74ee7a528b175faca01bd4c5133 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7774c055ae42ce0fd8b6714c6ae17a05 = $(`<div id="html_7774c055ae42ce0fd8b6714c6ae17a05" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">ibis Geneve Centre Gare</h4>         <p style="margin: 5px 0;"><b>Location:</b> Genf</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 143.10 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.5 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 0.52 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Accor (ibis)</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 94, Genf</i></p>     </div>     </div>`)[0];
+                popup_abb1e74ee7a528b175faca01bd4c5133.setContent(html_7774c055ae42ce0fd8b6714c6ae17a05);
+            
+        
+
+        circle_marker_d45f77884b1820504d497d689ce35674.bindPopup(popup_abb1e74ee7a528b175faca01bd4c5133)
+        ;
+
+        
+    
+    
+            var circle_marker_532a7767c6b77fcbe0c9637b877ef49d = L.circleMarker(
+                [46.50333637648695, 6.614184655016989],
+                {"bubblingMouseEvents": true, "color": "lightblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_4dd980b50254031385c99b150d97ef15 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6592a36e82c09fa8901bc03b3acaf4b4 = $(`<div id="html_6592a36e82c09fa8901bc03b3acaf4b4" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">ibis Geneve Centre Gare</h4>         <p style="margin: 5px 0;"><b>Location:</b> Lausanne</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 144.49 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.7 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 51.39 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Accor (ibis)</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 63, Lausanne</i></p>     </div>     </div>`)[0];
+                popup_4dd980b50254031385c99b150d97ef15.setContent(html_6592a36e82c09fa8901bc03b3acaf4b4);
+            
+        
+
+        circle_marker_532a7767c6b77fcbe0c9637b877ef49d.bindPopup(popup_4dd980b50254031385c99b150d97ef15)
+        ;
+
+        
+    
+    
+            var circle_marker_101c7600d9160eaed6f71c803de42c76 = L.circleMarker(
+                [46.18097894782104, 6.150846762502185],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_4bf10b073c9ad0207dbcc11bac044208 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_37a1c21b790a1990090c28add9118aea = $(`<div id="html_37a1c21b790a1990090c28add9118aea" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Résidence Studio Genève Centre</h4>         <p style="margin: 5px 0;"><b>Location:</b> Genf</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 132.05 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.2 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 0.86 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 95, Genf</i></p>     </div>     </div>`)[0];
+                popup_4bf10b073c9ad0207dbcc11bac044208.setContent(html_37a1c21b790a1990090c28add9118aea);
+            
+        
+
+        circle_marker_101c7600d9160eaed6f71c803de42c76.bindPopup(popup_4bf10b073c9ad0207dbcc11bac044208)
+        ;
+
+        
+    
+    
+            var circle_marker_c1e09ba92ca6027e4a0ae69d463b59b0 = L.circleMarker(
+                [46.53722476186178, 6.627629598007981],
+                {"bubblingMouseEvents": true, "color": "lightblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_32f6387d2160ad11f67f89feaa0d4c3c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b84ac8549f88e5bc4a8d92e0d635b3e8 = $(`<div id="html_b84ac8549f88e5bc4a8d92e0d635b3e8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Résidence Studio Genève Centre</h4>         <p style="margin: 5px 0;"><b>Location:</b> Lausanne</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 133.70 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 2.8 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 50.59 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 38, Lausanne</i></p>     </div>     </div>`)[0];
+                popup_32f6387d2160ad11f67f89feaa0d4c3c.setContent(html_b84ac8549f88e5bc4a8d92e0d635b3e8);
+            
+        
+
+        circle_marker_c1e09ba92ca6027e4a0ae69d463b59b0.bindPopup(popup_32f6387d2160ad11f67f89feaa0d4c3c)
+        ;
+
+        
+    
+    
+            var circle_marker_3ca10547fad95f4271382a95bf0b514d = L.circleMarker(
+                [46.74838221649215, 9.673829542920522],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_9a6aae81166af6248b730b3c1581688a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_026b39013e17709fdf7690b080ef6b37 = $(`<div id="html_026b39013e17709fdf7690b080ef6b37" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Hotel du Lac</h4>         <p style="margin: 5px 0;"><b>Location:</b> Arosa</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 113.42 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.9 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 107.36 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 13, Arosa</i></p>     </div>     </div>`)[0];
+                popup_9a6aae81166af6248b730b3c1581688a.setContent(html_026b39013e17709fdf7690b080ef6b37);
+            
+        
+
+        circle_marker_3ca10547fad95f4271382a95bf0b514d.bindPopup(popup_9a6aae81166af6248b730b3c1581688a)
+        ;
+
+        
+    
+    
+            var circle_marker_ad86b821ea57427add3357b1e4ae6ed6 = L.circleMarker(
+                [46.88958971041921, 9.53542914760793],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_bf013c0bfa62d6dccb298792e0cd80d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9b104cd273b749f41c1768997050e940 = $(`<div id="html_9b104cd273b749f41c1768997050e940" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Hotel du Lac</h4>         <p style="margin: 5px 0;"><b>Location:</b> Chur</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 113.84 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.0 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 94.78 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Hauptstrasse 92, Chur</i></p>     </div>     </div>`)[0];
+                popup_bf013c0bfa62d6dccb298792e0cd80d5.setContent(html_9b104cd273b749f41c1768997050e940);
+            
+        
+
+        circle_marker_ad86b821ea57427add3357b1e4ae6ed6.bindPopup(popup_bf013c0bfa62d6dccb298792e0cd80d5)
+        ;
+
+        
+    
+    
+            var circle_marker_1f3f2639e734a195c4badb4b950ee68f = L.circleMarker(
+                [46.72398627020909, 7.892062376178759],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_e3c061042a94f13cada39c4f982f5ba2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa10b7390979d97765021bee6b4ae072 = $(`<div id="html_fa10b7390979d97765021bee6b4ae072" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Hotel du Lac</h4>         <p style="margin: 5px 0;"><b>Location:</b> Interlaken</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 113.78 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.0 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 91.25 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Bahnhofstrasse 99, Interlaken</i></p>     </div>     </div>`)[0];
+                popup_e3c061042a94f13cada39c4f982f5ba2.setContent(html_fa10b7390979d97765021bee6b4ae072);
+            
+        
+
+        circle_marker_1f3f2639e734a195c4badb4b950ee68f.bindPopup(popup_e3c061042a94f13cada39c4f982f5ba2)
+        ;
+
+        
+    
+    
+            var circle_marker_2203a55c1bb114d97cde7180d2b98ae9 = L.circleMarker(
+                [47.011118481755425, 8.326957745548816],
+                {"bubblingMouseEvents": true, "color": "pink", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "pink", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_ccadb599111cda677d1c961f3ae47ab5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_77eaa07fd353a30348372b77a0f28836 = $(`<div id="html_77eaa07fd353a30348372b77a0f28836" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Hotel du Lac</h4>         <p style="margin: 5px 0;"><b>Location:</b> Luzern</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 101.57 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.1 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 39.14 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Hauptstrasse 14, Luzern</i></p>     </div>     </div>`)[0];
+                popup_ccadb599111cda677d1c961f3ae47ab5.setContent(html_77eaa07fd353a30348372b77a0f28836);
+            
+        
+
+        circle_marker_2203a55c1bb114d97cde7180d2b98ae9.bindPopup(popup_ccadb599111cda677d1c961f3ae47ab5)
+        ;
+
+        
+    
+    
+            var circle_marker_f8f82ea1209a1010ca9a985f9c8adbac = L.circleMarker(
+                [47.43903682952213, 9.379657626432703],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_718cc829c2124fb160256237d3c243e1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aa60794740560d28cf2cfc6f9dc16620 = $(`<div id="html_aa60794740560d28cf2cfc6f9dc16620" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Hotel du Lac</h4>         <p style="margin: 5px 0;"><b>Location:</b> St. Gallen</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 113.33 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 2.9 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 63.55 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Poststrasse 85, St. Gallen</i></p>     </div>     </div>`)[0];
+                popup_718cc829c2124fb160256237d3c243e1.setContent(html_aa60794740560d28cf2cfc6f9dc16620);
+            
+        
+
+        circle_marker_f8f82ea1209a1010ca9a985f9c8adbac.bindPopup(popup_718cc829c2124fb160256237d3c243e1)
+        ;
+
+        
+    
+    
+            var circle_marker_c084f3390cb69932b56a8bc532731138 = L.circleMarker(
+                [46.4721460151962, 9.846776943886384],
+                {"bubblingMouseEvents": true, "color": "cadetblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "cadetblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_c6ffb7c860c390d68ddd200786564326 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_978aab7db3c93461e96fecfca38b620d = $(`<div id="html_978aab7db3c93461e96fecfca38b620d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Hotel du Lac</h4>         <p style="margin: 5px 0;"><b>Location:</b> St. Moritz</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 113.34 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.7 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 138.03 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 96, St. Moritz</i></p>     </div>     </div>`)[0];
+                popup_c6ffb7c860c390d68ddd200786564326.setContent(html_978aab7db3c93461e96fecfca38b620d);
+            
+        
+
+        circle_marker_c084f3390cb69932b56a8bc532731138.bindPopup(popup_c6ffb7c860c390d68ddd200786564326)
+        ;
+
+        
+    
+    
+            var circle_marker_c7fa4ba02478c62b7123e19a050e0065 = L.circleMarker(
+                [47.46892417388767, 8.744781220053529],
+                {"bubblingMouseEvents": true, "color": "beige", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "beige", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_bfd7b88b3b12ed63149130df54c25fa5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_71df0b433ff40669c2308398abab70d5 = $(`<div id="html_71df0b433ff40669c2308398abab70d5" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Hotel du Lac</h4>         <p style="margin: 5px 0;"><b>Location:</b> Winterthur</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 114.95 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 3.0 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 21.86 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Marktplatz 36, Winterthur</i></p>     </div>     </div>`)[0];
+                popup_bfd7b88b3b12ed63149130df54c25fa5.setContent(html_71df0b433ff40669c2308398abab70d5);
+            
+        
+
+        circle_marker_c7fa4ba02478c62b7123e19a050e0065.bindPopup(popup_bfd7b88b3b12ed63149130df54c25fa5)
+        ;
+
+        
+    
+    
+            var circle_marker_698dbda1a40076981464bf74ae9a73ad = L.circleMarker(
+                [46.01699789650633, 7.785405274201687],
+                {"bubblingMouseEvents": true, "color": "lightgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightgreen", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_1464f6bddf6628cf64d1abf29a2eedf8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bd4116bceee3e3c52ba8fd739b4aa0ff = $(`<div id="html_bd4116bceee3e3c52ba8fd739b4aa0ff" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Hotel du Lac</h4>         <p style="margin: 5px 0;"><b>Location:</b> Zermatt</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 112.95 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 4.0 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 161.25 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Kirchgasse 38, Zermatt</i></p>     </div>     </div>`)[0];
+                popup_1464f6bddf6628cf64d1abf29a2eedf8.setContent(html_bd4116bceee3e3c52ba8fd739b4aa0ff);
+            
+        
+
+        circle_marker_698dbda1a40076981464bf74ae9a73ad.bindPopup(popup_1464f6bddf6628cf64d1abf29a2eedf8)
+        ;
+
+        
+    
+    
+            var circle_marker_4fbf9b169ed2af94552bd4717b567430 = L.circleMarker(
+                [47.40696823523025, 8.522771124060087],
+                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+    
+        var popup_e67376afa3d6b54e590bc089607dea8e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15232f9bc58786ed1526b60e49165429 = $(`<div id="html_15232f9bc58786ed1526b60e49165429" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; width: 250px;">         <h4 style="margin-bottom: 10px; color: #2c3e50;">Hotel du Lac</h4>         <p style="margin: 5px 0;"><b>Location:</b> Zuerich</p>         <p style="margin: 5px 0;"><b>Avg Price:</b> 115.06 CHF</p>         <p style="margin: 5px 0;"><b>Rating:</b> 2.8 ⭐</p>         <p style="margin: 5px 0;"><b>Distance from Center:</b> 1.22 km</p>         <p style="margin: 5px 0;"><b>Chain:</b> Independent</p>         <p style="margin: 5px 0; font-size: 11px;"><i>Kirchgasse 87, Zuerich</i></p>     </div>     </div>`)[0];
+                popup_e67376afa3d6b54e590bc089607dea8e.setContent(html_15232f9bc58786ed1526b60e49165429);
+            
+        
+
+        circle_marker_4fbf9b169ed2af94552bd4717b567430.bindPopup(popup_e67376afa3d6b54e590bc089607dea8e)
+        ;
+
+        
+    
+    
+            tile_layer_6b158de0c0af8eab66cf340a2a00dff0.addTo(map_9a5a91c77fadc157ad4aab8320791ef9);
+        
+</script>
+</html>
